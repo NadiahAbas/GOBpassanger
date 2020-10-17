@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="center" id="center">
+    <app-logo></app-logo>
+  </div>
+  
+  <h2 class="center" id="center">Please fill in the form below to register as our passenger</h2>
+
+  
+  <ion-grid class="ion-padding-top">
+    <ion-row>
+      <ion-col size="6"> 
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">NAME</ion-label>
+          <ion-input type="text" [(ngModel)]="user.name" placeholder="Full Name" minlength="6" required #nameCtrl="ngModel" (input)="getText($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!nameCtrl.valid && nameCtrl.touched" lines="none">
+          <ion-label>Should be a valid name and a mininum of 6 characters.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">
+            EMAIL</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" placeholder="your@email.com" required #emailCtrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">
+          <ion-label>Should be a valid email address.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">PASSWORD</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" placeholder="password" required #passwordCtrl="ngModel" minlength="6"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">
+          <ion-label>Should have a mininum of 6 characters</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">Area</ion-label>
+          <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="BN+673" okText="Ok"
+            [(ngModel)]="user.area"> 
+            <ion-select-option *ngFor="let item of dialCodes" [value]="item.dialCode">{{ item.code }}{{ item.dialCode }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="8">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">Mobile</ion-label>
+          <ion-input type="text" [(ngModel)]="user.phone" required minlength="7" maxlength="7" #pnoCtrl="ngModel" (input)="getNumber($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!pnoCtrl.valid && pnoCtrl.touched" lines="none">
+          <ion-label>Should be a valid 7 digit Phone Number without "+673" .</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">IC CARD</ion-label>
+          <ion-input type="text" [(ngModel)]="user.iccard" placeholder="Identity Card" required minlength="9" maxlength="9" #idcardCtrl="ngModel" (input)="getIc($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!idcardCtrl.valid && idcardCtrl.touched" lines="none">
+          <ion-label>Should be a valid 8 digit ID card Number with"-" .</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">BIRTH DATE</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Select birth date" [(ngModel)]="user.bday" (ionChange)="setDate()" 
+          [min]="minDate" [max]="finishMaxDate" required #bdayCtrl="ngModel" ></ion-datetime>
+        </ion-item>
+        <ion-item *ngIf="!bdayCtrl.valid && bdayCtrl.touched" lines="none">
+          <ion-label>You need to be at least 13 years old</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">NATIONALITY</ion-label>
+          <ion-input type="text" [(ngModel)]="user.nationality" placeholder="Nationality" required #nationalityCtrl="ngModel" (input)="getText($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!nationalityCtrl.valid && nationalityCtrl.touched" lines="none">
+          <ion-label>Example: Bruneian.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>I agree with the <a routerLink="/term">terms and condition</a></ion-label>
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>  
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+<ion-footer class="ion-padding">
+  <ion-button expand="full" color="gob" type="submit" [disabled]="disabled" class="submit-button"
+    (click)="registerUser()">Register
+    <span *ngIf="spinner">
+      <ion-spinner name="lines"></ion-spinner>
+    </span>
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,8 @@
+{
+  "name": "GOB(Passanger)",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

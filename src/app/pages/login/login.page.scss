@@ -1,0 +1,66 @@
+
+.sc-ion-buttons-md-s ion-button {
+    --margin-start: 5px;
+    --margin-end: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    --padding-start: 5.5em;
+    --padding-end: 5.5em;
+    --height: 35px;
+    --box-shadow: none;
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 1.5em;
+    padding-bottom: 3em;
+}
+
+
+ion-input {
+    background:  #92949c;
+}
+.horizontal-line {
+    width: calc(100% - 10%);
+    height: 3px;
+    background: #f4f4f4;
+    top: 28%;
+    display: flex;
+    align-self: center;
+}
+.label-class {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-self: center;
+    position: absolute;
+}
+.footer-image {
+    width: 35px;
+}
+.img-div {
+    width: 30px !important;
+    background: var(--ion-color-primary-contrast);
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    margin-left: 0% !important;
+    height: 30px !important;
+    align-items: center;
+    color: #86888fb8;
+    border: solid 1px;
+    font-size: 15px;
+}
+ion-col.row-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.button-width {
+    width: calc(50% - 8px);
+}
+
+#center{
+    display: block;
+    text-align: center;
+}
+

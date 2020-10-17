@@ -1,0 +1,26 @@
+{
+  "appId": "com.gob",
+  "appName": "GOB",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000",
+      "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyCEVHnj_VE5v0v2FLRx5c33Xz7h34WWDr8",
+      "GOOGLE_MAPS_IOS_API_KEY": "YOUR_API_KEY"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/paypal.jpg"></ion-img>
+    <ion-card-header>
+ 
+      <ion-card-title>PayPal Payment</ion-card-title>
+      <ion-row>
+        <ion-col>
+          Total Payment
+        </ion-col>
+        <ion-col>
+          {{currencyIcon}}{{totalFare}}
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+   
+      
+    
+  </ion-card>
+
+  <div id="paypal-button-container"></div>
+
+  <div button color="gob">
+  <ion-label class="ion-text-center" color="gob" (click)="done()">
+    <p class="dark-color">Done</p>
+  </ion-label> 
+</div>     
+
+</ion-content>

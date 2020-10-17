@@ -1,0 +1,45 @@
+
+  <ion-card class="card-pickup1" (click)="gotoEdit('pickup',true,'modal')" *ngIf="pickup">
+    <ion-item>
+      <ion-icon slot="start" expand="icon-only" name="search"></ion-icon>
+      <ion-label class="ion-text-center">
+        <h2 class="h2-color">Pick-Up Location</h2>
+        <h3>{{rideService.originAddress}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="card-destination1" (click)="gotoEdit('destination',false)" *ngIf="pickup">
+    <ion-item class="mapcardItem">
+      <ion-icon slot="start" expand="icon-only" name="search"></ion-icon>
+      <ion-label class="ion-text-center">
+        <h2 class="h2-color" *ngIf="rideService.destinationAddress == ''">Destination Location</h2>
+        <h3>{{rideService.destinationAddress}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="card-pickup2" (click)="gotoEdit('pickup',true)" *ngIf="!pickup">
+    <ion-item class="mapcardItem">
+      <ion-icon slot="start" expand="icon-only" name="search"></ion-icon>
+      <ion-label class="ion-text-center">
+        <h2 class="h2-color" *ngIf="rideService.originAddress == ''">Pick-up Location</h2>
+        <h3>{{rideService.originAddress}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="card-destination2" (click)="gotoEdit('destination',false,'modal')" *ngIf="!pickup">
+    <ion-item>
+      <ion-icon slot="start" expand="icon-only" name="search"></ion-icon>
+      <ion-label class="ion-text-center">
+        <h2 class="h2-color">Destination Location</h2>
+        <h3>{{rideService.destinationAddress}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <div class="location-hint-text">
+    <ion-text *ngIf="pickup">Type pick-up location OR move map / drag marker</ion-text>
+    <ion-text *ngIf="!pickup">Type destination location OR move map / drag marker</ion-text>
+  </div>

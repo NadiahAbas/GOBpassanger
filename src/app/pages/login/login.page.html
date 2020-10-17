@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="center" id="center">
+    <app-logo></app-logo>
+
+    </div>
+
+  <div style="margin-top:20px">
+    <ion-item class="item-input">
+      <ion-label position="stacked" class="ion-padding-bottom" color="medium">EMAIL</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item class="item-input">
+      <ion-label position="stacked" class="ion-padding-bottom" color="medium">PASSWORD</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  </div>
+  <ion-button expand="full" type="submit" [disabled]="disabled" color="gob" class="submit-button ion-padding-vertical"
+    (click)="login()">Log In
+    <span *ngIf="spinner">
+      <ion-spinner name="lines"></ion-spinner>
+    </span>
+  </ion-button>
+  <ion-button color="medium" fill="clear" type="submit" class="forgot-button ion-margin-top"
+    routerLink="/resetPassword">Forgot
+    Password</ion-button>
+    <ion-button color="medium" fill="clear" type="submit" class="forgot-button ion-margin-top"
+    routerLink="/register">Create Account</ion-button>
+</ion-content>

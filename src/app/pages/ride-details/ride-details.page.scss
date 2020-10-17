@@ -1,0 +1,22 @@
+
+agm-map {
+  height: 200px;
+}
+
+.contentHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-native {
+  --padding: 0;
+}
+.instruction {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+}
+.unwrapped {
+  white-space: normal;
+  overflow: hidden;
+}

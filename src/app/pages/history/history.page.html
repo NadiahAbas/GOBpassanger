@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let ride of rides" class="ion-no-padding ion-padding-vertical history-card"
+    (click)="showInfo(ride)">
+    <ion-item class="history-item" lines="none">
+      <div slot="start" class="avatar-div">
+        <img src="assets/images/logo.png" /> 
+        
+      </div>
+      <ion-label>
+        <div class="date">
+          <ion-icon name="calendar" color="gob"></ion-icon>
+          <ion-text>{{ ride.createdAt.toDate() | date }}</ion-text>
+        </div>
+        <ion-item class="fare">
+          <ion-icon name="ellipse" color="dark" slot="start"></ion-icon>
+          <ion-label>
+            <ion-text color="dark">BND {{ ride.fare }}</ion-text>
+          </ion-label>
+        </ion-item>
+        <ion-label class="km">
+          <ion-icon name="ellipse" color="success"></ion-icon>
+          <ion-text color="dark">{{ ride.distance }} KM</ion-text>
+        </ion-label>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

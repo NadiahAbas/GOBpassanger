@@ -1,0 +1,64 @@
+.card-pickup1 {
+    background: white;
+    z-index: 999;
+    width: calc(100% - 5%) !important;
+    min-height: 65px;
+    max-height: 65px;
+    position: absolute;
+    top: 5%;
+}
+
+.card-pickup2 {
+    width: calc(100% - 25%);
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 6%;
+    z-index: 111;
+}
+
+.card-destination1 {
+    top: calc(5% + 75px);
+    position: absolute;
+    width: calc(100% - 34%);
+    z-index: 111;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.card-destination2 {
+    width: calc(100% - 5%);
+    left: 0;
+    top: calc(6% + 48px);
+    position: absolute;
+    z-index: 111;
+    margin: 0 10px;
+}
+
+.h2-color {
+    color: black !important;
+}
+
+.mapcardItem {
+    --background: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+}
+
+.location-hint-text {
+    top: calc(15% + 75px);
+    position: absolute;
+    width: 90%;
+    z-index: 111;
+    right: 5%;
+    /* left: 0; */
+    /* margin: auto; */
+    text-align: center;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    padding: 3px 0;
+}

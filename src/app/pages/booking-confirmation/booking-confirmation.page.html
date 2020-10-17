@@ -1,0 +1,45 @@
+
+<ion-header class="gob-bg">
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirmation</ion-title>
+  </ion-toolbar>
+  <progress-bar [progress]="progress" [color]="'#53bfe9'">
+  </progress-bar>
+  <ion-row>
+    <ion-col size="12">
+      <div class="ion-text-center">
+        <img src="assets/image/cartaxi.png">
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div class="ion-text-center">
+        <p class="text-color ion-no-margin"> Working on your Request</p>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-header>
+<ion-content class="content-bg">
+  <ion-card class="map-card">
+    <ion-item>
+      <div slot="start">
+        <ion-label>
+          <ion-icon name="caret-down-circle" class="icon-drop"></ion-icon>
+          <div class="vertical-dash" slot="start"></div>
+          <ion-icon name="navigate-circle" class="icon-pin"></ion-icon>
+        </ion-label>
+      </div>
+      <ion-label>
+        <p class="horizontal-line">{{rideService.originAddress}}</p>
+        <p>{{rideService.destinationAddress}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
+<ion-footer class="ion-padding">
+  <ion-button expand="full" type="submit" color="danger" class="submit-button">CANCEL REQUEST</ion-button>
+</ion-footer>

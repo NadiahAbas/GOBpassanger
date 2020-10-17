@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{rideService.rideInfo.ride_started ? 'Ride Started' : 'Pickup Arriving'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="parentMap">
+    <agm-map [latitude]="rideService.origin.lat" [longitude]="rideService.origin.lng" [zoom]="zoom"
+      [disableDefaultUI]="false" [zoomControl]="false" [fullscreenControl]="false" [styles]="rideService.mapStyle">
+      <agm-direction
+        *ngIf="rideService.origin && rideService.destination && rideService.origin.lat && rideService.destination.lat"
+        [origin]="rideService.origin" [destination]="rideService.destination">
+      </agm-direction>
+    </agm-map>
+    <div class="distance"> Distance : {{rideService.rideInfo.distance}} km </div>
+  </div>
+
+  <ion-fab vertical="center" horizontal="end" slot="fixed" class="fab-icon">
+    <ion-fab-button>
+      <ion-icon name="locate" style="font-size: 35px;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/images/logo.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2 *ngIf="rideService.driverInfo && rideService.driverInfo.email">{{ rideService.driverInfo.email }}</h2>
+        <h2 *ngIf="!rideService.driverInfo || !rideService.driverInfo.name"></h2>
+        <div class="rating">
+          <ion-icon name="star" *ngFor="let star of stars(4)" class="filled"></ion-icon>
+          <ion-icon name="star-outline" *ngFor="let star of stars(1)" class="empty"></ion-icon>
+        </div>
+        <p>Toyota</p>
+      </ion-label>
+      <ion-label>
+        <ion-fab vertical="top" horizontal="end" slot="fixed">
+          <ion-button color="gob" fill="clear"> Scheduled</ion-button>
+        </ion-fab>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-icon name="call" expand="icon-only"></ion-icon>
+        </ion-fab>
+      </ion-label>
+    </ion-item>
+    <ion-item class="ion-padding-bottom">
+      <ion-icon name="pin" expand="icon-only" slot="start"></ion-icon>
+      <ion-label>{{rideService.destinationAddress}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-center" (click)="paypal()">
+        <ion-icon name="logo-usd" expand="icon-only" class="icon-spec"></ion-icon>
+        <p class="dark-color">Pay with Paypal</p>
+      </ion-label>      
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer class="ion-padding">
+  <ion-button *ngIf="rideService.rideInfo.ride_started" color="danger" expand="full" type="submit" class="submit-button"
+    (click)="cancelRide()">Cancel Booking</ion-button>
+</ion-footer>

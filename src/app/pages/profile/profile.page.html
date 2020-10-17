@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+      <div   text-center>
+        <img *ngIf="img && !urlImage" src="{{img}}" class="circle" > 
+         <img *ngIf="urlImage"  [src]="urlImage | async" class="circle" > 
+        
+         <br>
+         <br>
+         <img *ngIf="!urlImage && !img"  src="assets/images.logo.png" width="200px"> <br>
+      </div>
+  
+      <div margin-bottom margin-top text-center>
+        <label class="custom-file-upload" style="margin:auto;max-width:400px">
+          <input id="file-upload" placeholder="Seleciona imagen" type="file" accept=".png, .jpg"
+            (change)="openGallery($event)" />
+        </label>
+      </div>
+  
+
+  
+  <ion-grid class="ion-padding-top">
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" color="medium">
+            Full Name</ion-label>
+          <ion-input name="name" [(ngModel)]="loggedInUser.name" type="text" minlength="6" #FnameCtrl="ngModel" (input)="getText($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!FnameCtrl.valid && FnameCtrl.touched" lines="none">
+          <ion-label>Should be a valid name and a mininum of 6 characters.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" color="medium"> Email</ion-label>
+          <ion-input name="email" [(ngModel)]="loggedInUser.email" type="email" #emailCtrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">
+          <ion-label>Should be a valid email address.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">Area</ion-label>
+          <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="BN+673" okText="Okay!">
+            <ion-select-option *ngFor="let item of dialCodes" value="item.dialCode" selected>
+              {{item.code}}{{item.dialCode}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="8">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom " color="medium">Mobile</ion-label>
+          <ion-input name="phone" [(ngModel)]="loggedInUser.phone" type="text" minlength="7" maxlength="7" #pnoCtrl="ngModel" (input)="getNumber($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!pnoCtrl.valid && pnoCtrl.touched" lines="none">
+          <ion-label>Should be a valid 7 digit Phone Number without "+673" .</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" color="medium"> IC Card</ion-label>
+          <ion-input name="iccard" [(ngModel)]="loggedInUser.iccard" type="text" minlength="9" maxlength="9" #idcardCtrl="ngModel" (input)="getIc($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!idcardCtrl.valid && idcardCtrl.touched" lines="none">
+          <ion-label>Should be a valid 8 digit ID card Number with "-" .</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" color="medium">Birth Date</ion-label>
+          <ion-datetime name="bday" [(ngModel)]="loggedInUser.bday" type="date" #bdayCtrl="ngModel" (ionChange)="setDate()" 
+          [min]="minDate" [max]="finishMaxDate"></ion-datetime>
+        </ion-item>
+        <ion-item *ngIf="!bdayCtrl.valid && bdayCtrl.touched" lines="none">
+          <ion-label>You need to be at least 13 years old</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" color="medium">Nationality</ion-label>
+          <ion-input name="nationality" [(ngModel)]="loggedInUser.nationality" type="text" #nationalityCtrl="ngModel" (input)="getText($event)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!nationalityCtrl.valid && nationalityCtrl.touched" lines="none">
+          <ion-label>Example: Bruneian.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+<ion-footer class="ion-padding">
+  <ion-button expand="full" color="gob" type="submit" class="submit-button" (click)="updateProfileDetails()">Save
+    Details
+  </ion-button>
+</ion-footer>

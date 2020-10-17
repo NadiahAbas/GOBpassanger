@@ -1,0 +1,38 @@
+.list-md:not(.list-inset):not(.list-md-lines-none) .item:last-child {
+  --inner-border-width: 0 !important;
+  --border-width: 0 0 1px 0 !important;
+}
+ion-icon.icon-spec {
+  font-size: 30px;
+  color: var(--ion-color=gob);
+}
+.vertical-line {
+  width: 1px;
+  background: gray;
+  height: 56%;
+  margin-right: 12px;
+}
+.dark-color {
+  color: var(--ion-color-dark);
+}
+.dark-small {
+  font-size: 10px;
+}
+ion-content {
+  --background: #3e272363;
+}
+.div-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100% !important;
+}
+.button-pos {
+  display: flex;
+  justify-content: flex-end;
+}
+.card-style {
+  width: 100%;
+  background: #cdabd6;
+}

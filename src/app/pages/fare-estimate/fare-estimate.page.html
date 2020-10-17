@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fare Estimate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="first-div">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <h2 class="h2-class">${{totalFare | number : '1.2-2'}} - ${{1.05*totalFare | number : '1.2-2'}}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <p class="h2-class ion-no-margin ion-text-uppercase ">Approx travel time: {{tripTime}} min</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-card class="map-card">
+    <ion-item>
+      <div slot="start">
+        <ion-label>
+          <ion-icon name="caret-down-circle" class="icon-drop"></ion-icon>
+          <div class="vertical-dash" slot="start"></div>
+          <ion-icon name="navigate-circle" class="icon-pin"></ion-icon>
+        </ion-label>
+      </div>
+      <ion-label>
+        <p class="horizontal-line">{{rideService.originAddress}} </p>
+        <p>{{rideService.destinationAddress}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="card-style">
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="assets/image/cartaxi.png"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <p class="footer-para">{{rideService.taxiType }}</p>
+          <p class="footer-para"> Toyota</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-item class="item-spec">
+      <ion-label class="ion-text-center">
+        <ion-icon name="cash" expand="icon-only" class="icon-spec"></ion-icon>
+        <p class="dark-color">Cash</p>
+        <p class="dark-small">Change Mode</p>
+      </ion-label>
+      <div class="vertical-line"></div>
+      <ion-label class="ion-text-center">
+        <ion-icon name="man" expand="icon-only" class="icon-spec"></ion-icon>
+        <p class="dark-color">SOS</p>
+        <p class="dark-small">Emergency</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <p class="footer-para ion-text-center">Note: This is an estimate of the fare. Actual fare may vary slightly based on
+    traffic and discount</p>
+</ion-footer>

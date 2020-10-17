@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title> Change Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="first-div">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <h2 class="h2-class">${{totalFare | number : '1.2-2' }} - ${{1.05*totalFare | number : '1.2-2'}}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <p class="h2-class ion-no-margin ion-text-uppercase">Approx travel time: {{tripTime}} min</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-list>
+    <ion-radio-group [value]="value">
+      <ion-list-header>
+        <ion-label>Select Payment Mode</ion-label>
+      </ion-list-header>
+      <ion-card>
+        <ion-item>
+          <ion-icon slot="start" name="logo-paypal">
+          </ion-icon>
+          <ion-label>Paypal</ion-label>
+          <ion-radio slot="end" value="paypal" checked></ion-radio>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-icon slot="start" name="cash">
+          </ion-icon>
+          <ion-label>Cash</ion-label>
+          <ion-radio slot="end" value="cash"></ion-radio>
+        </ion-item>
+      </ion-card>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
+<ion-footer class="ion-padding">
+  <ion-button expand="full" type="submit" class="submit-button" color="gob" (click)="submit()">Ok</ion-button>
+</ion-footer>

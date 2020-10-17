@@ -1,0 +1,20 @@
+
+.img_content {
+    --background: var(--ion-color-gob);
+}
+.profile_stub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile_pic {
+    width: 100px;
+    height: 100px;
+}
+.menu-item {
+    ion-label {
+        font-size: 20px;
+        padding: 7px;
+    }
+}

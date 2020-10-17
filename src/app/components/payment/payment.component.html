@@ -1,0 +1,34 @@
+<ion-content style="background:transparent">
+  <div class="div-class">
+    <ion-card class="card-style">
+      <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img [src]="carImage" class="footer-image"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <p>{{taxiType }}</p>
+            <p> Toyota</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-label class="ion-text-center">
+          <ion-icon name="cash" expand="icon-only" class="icon-spec"></ion-icon>
+          <p class="dark-color">Cash</p>
+          <p class="dark-small">Change Mode</p>
+        </ion-label>
+        <div class="vertical-line"></div>
+        <ion-label class="ion-text-center">
+          <ion-icon name="man" expand="icon-only" class="icon-spec"></ion-icon>
+          <p class="dark-color">SOS</p>
+          <p class="dark-small">Emergency</p>
+        </ion-label>
+      </ion-item>
+      <div class="button-pos">
+        <ion-button fill="clear" (click)="closeModal()" slot="end" color="medium">CANCEL</ion-button>
+        <ion-button fill="clear" (click)="routeModal()" slot="end" color="dark">REQUEST RIDE</ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

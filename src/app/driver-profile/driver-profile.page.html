@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>driverProfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of driverInfo">
+    <ion-item>
+      <ion-thumbnail class="ion-thumbnail">
+        <ion-icon src="assets/images/logo.png" expand="icon-only" class="icon-thumbnail"></ion-icon>
+      </ion-thumbnail>
+      <ion-label>
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+      </ion-label>
+    </ion-item>
+    <div class="card-bottom-item">
+      <h2>name: Sofia binti Sofian</h2>
+      <h3>Phone: +673 745 6373</h3>
+      <h3>Email: driver@gmail.com</h3>
+    </div>
+  </ion-card>
+</ion-content>

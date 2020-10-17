@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color= "gob">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>emergency</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-list>
+    <ion-item button *ngFor="let track of playlist" (click)="start(track)">
+      <ion-img src="/assets/em.png" class="em"></ion-img>
+    </ion-item>
+  </ion-list>
+
+<div>
+    <button class="btn" *ngFor="let track of playlist" (click)="stop(track)">
+      Stop sound!
+    </button>
+</div>
+
+  
+
+  <form #form="ngForm" (ngSubmit)="(form)" >
+    <div></div>
+    <div></div>
+    <div>
+
+      <h2> Emergency Contact Details </h2>
+
+      <ion-item>
+        <ion-label postion="stacked">NAME</ion-label>
+        <ion-input name="name" [(ngModel)]="name" type="text" #nameCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!nameCtrl.valid && nameCtrl.touched" lines="none">
+        <ion-label>Should be a valid name and a mininum of 6 characters.</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label postion="stacked">RELATION</ion-label>
+        <ion-input name="relation" [(ngModel)]="relation" type="text" #relationCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!relationCtrl.valid && relationCtrl.touched" lines="none">
+        <ion-label>Eg. Mother / Father / Brother / Sister / Relative</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label postion="stacked">PHONE NO</ion-label>
+        <ion-input [(ngModel)]="pno" name="pno" type='number' #pnoCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!pnoCtrl.valid && pnoCtrl.touched" lines="none">
+        <ion-label>Should be a valid phone number with +673</ion-label>
+      </ion-item>
+
+    </div>
+
+    <div style="text-align: center;margin: auto;">
+      <ion-button  expand="block" shape='round' color='gob' type="submit" [disabled]="form.invalid" (click)="saveEmergency(name, relation, pno)">Submit</ion-button>
+    </div>
+  </form>
+
+
+</ion-content>

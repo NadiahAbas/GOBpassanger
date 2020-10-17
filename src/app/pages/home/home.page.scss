@@ -1,0 +1,118 @@
+agm-map {
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+}
+
+ion-fab.fab-icon {
+    margin-top: -73px;
+}
+
+ion-fab-button {
+    --background: var(--ion-color-success-contrast);
+    --background-activated: var(--ion-color-tertiary-contrast);
+    --background-focused: var(--background-activated);
+    --color: var(--ion-color-light-contrast);
+    --color-activated: var(--ion-color-light-contrast);
+    --color-focused: var(--color-activated);
+    --box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    --transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), background-color 280ms cubic-bezier(0.4, 0, 0.2, 1), color 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+
+
+.card1-item {
+    --inner-border-width: 0 0 0px 0 !important;
+}
+
+
+ion-label {
+    margin: 4px 4px 4px 0 !important;
+}
+
+.h2-color {
+    color: var(--ion-color-all) !important
+}
+
+.horizontal-line {
+    width: 55%;
+    height: 5px;
+    background: #f4f4f4;
+    position: absolute;
+    margin-left: 21%;
+    top: 35%;
+}
+
+.footer-image {
+    width: 35px;
+}
+
+.label-class {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-div {
+    width: 45px !important;
+    background: #666666;
+    border-radius: 50%;
+    height: 45px;
+    justify-content: center;
+    display: flex;
+    margin-left: 0% !important;
+    height: 45px !important;
+}
+
+.taxi-type {
+    color: black;
+}
+
+ion-col {
+    padding: 16px 0px 0px 0px !important;
+    flex: 1 !important;
+}
+
+h3 {
+    margin: 9px 0 !important;
+}
+
+ion-item {
+    --inner-border-width: 0 0 0px 0;
+}
+
+p {
+    color: black !important;
+}
+.distance {
+    position: absolute;
+    top: -30px;
+    width: 50%;
+    left: 25%;
+    /* text-align: center; */
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ion-footer {
+    background-color: #cdabd6;
+  }
+
+.emergency {
+    margin-top: 490px;
+    border: none;
+    height: 70px;
+    width: 70px;
+  }
+
+.em {
+    border: none;
+    height: 100px;
+    width: 100px;
+}

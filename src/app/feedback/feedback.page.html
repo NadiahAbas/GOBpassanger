@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="gob">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="center" id="center">Thank You for choosing our service. Please take a few minutes to complete your feedback, as your feedback will help us to improve the effectiveness of our service in the future.</h3>
+
+  <form #form="ngForm" (ngSubmit)="(form)" >
+    
+    <div>
+
+      <ion-item>
+        <ion-label postion="stacked">Name</ion-label>
+        <ion-input name="name" [(ngModel)]="loggedInUser.name" type="text" #nameCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!nameCtrl.valid && nameCtrl.touched" lines="none">
+        <ion-label>Should be a valid name and a mininum of 6 characters.</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label postion="stacked">Email</ion-label>
+        <ion-input name="email" [(ngModel)]="loggedInUser.email" type="email" #emailCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">
+        <ion-label>Should be a valid email address.</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label postion="stacked">Message</ion-label>
+        <ion-input [(ngModel)]="feedback.message" name="message" type='text' placeholder="Enter your feedback" #feedbackCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!feedbackCtrl.valid && feedbackCtrl.touched" lines="none">
+        <ion-label>Dont leave it blank!</ion-label>
+      </ion-item>
+
+    </div>
+
+    <div style="text-align: center;margin: auto;">
+      <ion-button  expand="block" shape='round' color='gob' type="submit" [disabled]="form.invalid" (click)="saveFeedback()">Submit</ion-button>
+    </div>
+  </form>
+
+
+  
+
+</ion-content>
